@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata :
+  name : smart-diet-deployment
+spec :
+  replicas : 1
+  selector :
+    matchLabels :
+      app : smart-diet
+  template :
+    metadata :
+      labels :
+        app: smart-diet
+    spec :
+      containers :
+        - name : smart-diet-container
+          image : tharasri/smart-diet-app:latest
+          ports :
+            - containerPort : 8000
+
